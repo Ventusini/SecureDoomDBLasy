@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Incident
-from .models import InOutRegister
+from .models import InOutRegister, Street
 
 
 class IncidentsSerializer(serializers.ModelSerializer):
@@ -15,3 +15,8 @@ class CarsSerializer(serializers.ModelSerializer):
         model = InOutRegister
         fields = ('id','time', 'car', 'kind')
         read_only_fields = ('id', 'time')
+
+class StreetsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Street
+        fields = "__all__"
